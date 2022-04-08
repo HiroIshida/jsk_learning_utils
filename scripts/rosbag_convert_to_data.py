@@ -26,7 +26,7 @@ class AngleVector:
     @classmethod
     def from_ros_msg(cls, msg: JointState, config: Config) -> 'AngleVector':
         joint_angles = []
-        for j_dict in config.control_joint_names:
+        for j_dict in config.control_joints:
             idx = msg.name.index(j_dict["name"])
             if j_dict["type"] == "revolute":
                 joint_angles.append(msg.position[idx])
